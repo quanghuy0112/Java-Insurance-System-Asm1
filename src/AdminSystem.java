@@ -2,14 +2,20 @@ public class AdminSystem {
 
     public static void main(String[] args){
 
-        Customer cus1 = new PolicyHolder("123", "Huy");
+        InsuranceCard insuranceCard1 = insuranceCard1 = new InsuranceCard(1234567781, null, "Rmit", "2022-03-04");
 
-        Claim claim1 = new Claim(123, 500, "2023-10-01", cus1);
-        Claim claim2 = new Claim(234, 1000, "2024-01-01", cus1);
+        Customer cus1 = new PolicyHolder("123", "Huy", insuranceCard1);
+
+        Claim claim1 = new Claim(123, cus1, insuranceCard1, "2023-10-01", 500);
+        Claim claim2 = new Claim(234, cus1, insuranceCard1, "2024-03-04", 1000);
+        
+
+
 
         cus1.addClaim(claim1);
         cus1.addClaim(claim2);
         cus1.showInfo();
+
 
 
 

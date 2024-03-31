@@ -9,10 +9,11 @@ public class PolicyHolder extends Customer{
         listOfDependent = new ArrayList<Dependent>();
     }
 
-    public PolicyHolder(String cusID, String cusName) {
-        super(cusID, cusName);
+    public PolicyHolder(String cusID, String cusName, InsuranceCard insuranceCard) {
+        super(cusID, cusName, insuranceCard);
         listOfDependent = new ArrayList<Dependent>();
     }
+
 
     public List<Dependent> getListOfDependent() {
         return listOfDependent;

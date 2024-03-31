@@ -20,12 +20,14 @@ public class Claim {
         documents = new ArrayList<Document>();
     }
 
-    public Claim(int claimID, double claimAmount, String examDate, Customer insuredPerson) {
+    public Claim(int claimID, Customer insuredPerson, InsuranceCard cardNumber, String examDate, double claimAmount) {
         this.claimID = claimID;
         this.claimDate = null;
         this.examDate = examDate;
-        this.claimAmount = claimAmount;
         this.insuredPerson = insuredPerson;
+        this.cardNumber = cardNumber;
+        this.claimAmount = claimAmount;
+        documents = new ArrayList<Document>();
     }
 
     public int getClaimID() {
@@ -40,8 +42,8 @@ public class Claim {
         return insuredPerson.getCusName();
     }
 
-    public InsuranceCard getCardNumber() {
-        return cardNumber;
+    public int getCardNumber() {
+        return cardNumber.getCardNumber();
     }
 
     public String getExamDate() {
@@ -66,7 +68,7 @@ public class Claim {
                 "claimID=" + claimID +
                 ", claimDate=" + claimDate +
                 ", insuredPerson=" + getInsuredPerson() +
-                ", cardNumber=" + cardNumber +
+                ", cardNumber=" + getCardNumber() +
                 ", examDate=" + examDate +
                 ", documents=" + documents +
                 ", claimAmount=" + claimAmount +
