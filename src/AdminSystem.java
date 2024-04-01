@@ -8,8 +8,10 @@ public class AdminSystem {
 
         Customer cus1 = new PolicyHolder("123", "Huy", insuranceCard1);
 
-        Claim claim1 = new Claim(123, cus1, insuranceCard1, "2023-10-01", 500);
-        Claim claim2 = new Claim(234, cus1, insuranceCard1, "2024-03-04", 1000);
+        BankInfo bank1 = new BankInfo("MB", "Huy", "0112");
+
+        Claim claim1 = new Claim(123, cus1, insuranceCard1, "2023-10-01", 500, bank1);
+        Claim claim2 = new Claim(234, cus1, insuranceCard1, "2024-03-04", 1000, bank1);
 
         ClaimOfCustomer claimManager = new ClaimOfCustomer();
 

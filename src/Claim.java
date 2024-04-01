@@ -10,6 +10,7 @@ public class Claim {
     private String examDate;
     private List<Document> documents;
     private double claimAmount;
+    private BankInfo receiveBankInfo;
     private enum status {New, Processing, Done};
 
     public Claim(){
@@ -17,15 +18,17 @@ public class Claim {
         this.claimDate = null;
         this.examDate = "Default";
         this.claimAmount = 0;
+        this.receiveBankInfo = null;
         documents = new ArrayList<Document>();
     }
 
-    public Claim(int claimID, Customer insuredPerson, InsuranceCard cardNumber, String examDate, double claimAmount) {
+    public Claim(int claimID, Customer insuredPerson, InsuranceCard cardNumber, String examDate, double claimAmount, BankInfo receiveBankInfo) {
         this.claimID = claimID;
         this.claimDate = null;
         this.examDate = examDate;
         this.insuredPerson = insuredPerson;
         this.cardNumber = cardNumber;
+        this.receiveBankInfo = receiveBankInfo;
         this.claimAmount = claimAmount;
         documents = new ArrayList<Document>();
     }
@@ -62,16 +65,35 @@ public class Claim {
         this.insuredPerson = insuredPerson;
     }
 
+    public BankInfo getReceiveBankInfo() {
+        return receiveBankInfo;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "{" +
+//                "claimID=" + claimID +
+//                ", claimDate=" + claimDate +
+//                ", insuredPerson=" + getInsuredPerson() +
+//                ", cardNumber=" + getCardNumber() +
+//                ", examDate=" + examDate +
+//                ", documents=" + documents +
+//                ", claimAmount=" + claimAmount +
+//                '}';
+//    }
+
+
     @Override
     public String toString() {
-        return "{" +
+        return "Claim{" +
                 "claimID=" + claimID +
                 ", claimDate=" + claimDate +
                 ", insuredPerson=" + getInsuredPerson() +
-                ", cardNumber=" + getCardNumber() +
-                ", examDate=" + examDate +
+                ", cardNumber=" + getCardNumber()  +
+                ", examDate='" + examDate + '\'' +
                 ", documents=" + documents +
                 ", claimAmount=" + claimAmount +
+                ", receiveBankInfo=" + getReceiveBankInfo() +
                 '}';
     }
 }
