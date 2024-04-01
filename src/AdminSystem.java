@@ -27,6 +27,11 @@ public class AdminSystem {
             System.out.println(claim);
         }
 
+        claimManager.removeClaimCustomers(cus1, claim1);
+
+        for (Claim claim : claimList){
+            System.out.println(claim);
+        }
 
 
 

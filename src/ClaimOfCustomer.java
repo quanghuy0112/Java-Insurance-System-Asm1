@@ -33,7 +33,18 @@ public class ClaimOfCustomer {
         }
     }
 
-    
+    boolean removeClaimCustomers(Customer customer, Claim claim){
+        boolean isDoing = false;
+        List<Claim> claims = getAllClaim(customer);
+        if(claims != null){
+            isDoing = claims.remove(claim);
+            claimToCustomer.replace(customer.getCusID(), claims);
+        }
+        return isDoing;
+    }
+
+
+
 
 
 }
