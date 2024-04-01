@@ -11,16 +11,22 @@ public class AdminSystem {
         Claim claim1 = new Claim(123, cus1, insuranceCard1, "2023-10-01", 500);
         Claim claim2 = new Claim(234, cus1, insuranceCard1, "2024-03-04", 1000);
 
+        ClaimOfCustomer claimManager = new ClaimOfCustomer();
 
 
         cus1.addClaim(claim1);
         cus1.addClaim(claim2);
         cus1.showInfo();
-        ClaimOfCustomer Claim1 = new ClaimOfCustomer();
-        List<Claim> ClaimList = Claim1.getAllClaim("123");
-        for (Claim claim : ClaimList){
-            claim.toString();
+
+        claimManager.addClaimToCustomer(cus1, claim1);
+        claimManager.addClaimToCustomer(cus1, claim2);
+
+        List<Claim> claimList = claimManager.getAllClaim(cus1);
+
+        for (Claim claim : claimList){
+            System.out.println(claim);
         }
+
 
 
 
