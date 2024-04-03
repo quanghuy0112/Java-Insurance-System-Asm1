@@ -7,32 +7,48 @@ public class AdminSystem {
 
     public static void main(String[] args) throws IOException{
 
-        InsuranceCard insuranceCard1 = new InsuranceCard(1234567781, null, "Rmit", "2022-03-04");
+        InsuranceCard insuranceCard1 = new InsuranceCard(1234567781, "Rmit", "2022-03-04");
 
         Customer cus1 = new PolicyHolder("123", "Huy");
+        Customer cus2 = new PolicyHolder("345", "Dat");
 
         BankInfo bank1 = new BankInfo("MB", "Huy", "0112");
 
-        Claim claim1 = new Claim(123, insuranceCard1, "2023-10-01", 500, bank1);
-        Claim claim2 = new Claim(234, insuranceCard1, "2024-03-04", 1000, bank1);
+        Claim claim1 = new Claim(123, "2023-10-01", 500, bank1);
+        Claim claim2 = new Claim(234, "2024-03-04", 1000, bank1);
         claim1.setInsuredPerson(cus1);
         claim2.setInsuredPerson(cus1);
+        claim1.setCardNumber(insuranceCard1);
+        claim2.setCardNumber(insuranceCard1);
+
+        insuranceCard1.setCardHolder(cus1);
+
 
         ClaimOfCustomer claimManager = new ClaimOfCustomer();
+        InsuranceOfCustomer insuranceManager = new InsuranceOfCustomer();
+
+        insuranceManager.addInsuranceToCustomer(cus1, insuranceCard1);
+        System.out.println(insuranceManager.getInsuranceCard(cus1));
+
 
 
 //        cus1.addClaim(claim1);
 //        cus1.addClaim(claim2);
 //        cus1.showInfo();
 
+
         claimManager.addClaimToCustomer(cus1, claim1);
         claimManager.addClaimToCustomer(cus1, claim2);
+
+
+
 
         List<Claim> claimList = claimManager.getAllClaim(cus1);
 
         for (Claim claim : claimList) {
             System.out.println(claim);
         }
+
 
 //        claimManager.removeClaimCustomers(cus1, claim1);
 //

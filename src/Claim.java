@@ -36,7 +36,18 @@ public class Claim {
 //        documents = new ArrayList<Document>();
 //    }
 
-    public Claim(int claimID, InsuranceCard cardNumber, String examDate, double claimAmount, BankInfo receiveBankInfo) {
+//    public Claim(int claimID, InsuranceCard cardNumber, String examDate, double claimAmount, BankInfo receiveBankInfo) {
+//        this.claimID = claimID;
+//        this.claimDate = null;
+//        this.examDate = examDate;
+//        this.insuredPerson = insuredPerson;
+//        this.cardNumber = cardNumber;
+//        this.receiveBankInfo = receiveBankInfo;
+//        this.claimAmount = claimAmount;
+//        documents = new ArrayList<Document>();
+//    }
+
+    public Claim(int claimID, String examDate, double claimAmount, BankInfo receiveBankInfo) {
         this.claimID = claimID;
         this.claimDate = null;
         this.examDate = examDate;
@@ -47,17 +58,6 @@ public class Claim {
         documents = new ArrayList<Document>();
     }
 
-//    public Claim(int claimID, String examDate, double claimAmount, BankInfo receiveBankInfo) {
-//        this.claimID = claimID;
-//        this.claimDate = null;
-//        this.examDate = examDate;
-//        this.insuredPerson = insuredPerson;
-//        this.cardNumber = cardNumber;
-//        this.receiveBankInfo = receiveBankInfo;
-//        this.claimAmount = claimAmount;
-//        documents = new ArrayList<Document>();
-//    }
-//
 
 
     public int getClaimID() {
@@ -90,6 +90,10 @@ public class Claim {
 
     public void setInsuredPerson(Customer insuredPerson) {
         this.insuredPerson = insuredPerson;
+    }
+
+    public void setCardNumber(InsuranceCard cardNumber) {
+        this.cardNumber = cardNumber;
     }
 
     public boolean addCustomer(Customer insuredPerson){

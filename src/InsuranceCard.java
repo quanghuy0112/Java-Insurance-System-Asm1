@@ -10,12 +10,22 @@ public class InsuranceCard {
         this.policyOwner = null;
     }
 
-    public InsuranceCard(int cardNumber, Customer cardHolder, String policyOwner, String exiprationDate) {
+//    public InsuranceCard(int cardNumber, Customer cardHolder, String policyOwner, String exiprationDate) {
+//        this.cardNumber = cardNumber;
+//        this.cardHolder = cardHolder;
+//        this.policyOwner = policyOwner;
+//        this.exiprationDate = exiprationDate;
+//    }
+
+    public InsuranceCard(int cardNumber, String policyOwner, String exiprationDate) {
         this.cardNumber = cardNumber;
         this.cardHolder = cardHolder;
         this.policyOwner = policyOwner;
         this.exiprationDate = exiprationDate;
     }
+
+
+
 
     public int getCardNumber() {
         return cardNumber;
@@ -25,11 +35,15 @@ public class InsuranceCard {
         return cardHolder.getCusName();
     }
 
+    public void setCardHolder(Customer cardHolder) {
+        this.cardHolder = cardHolder;
+    }
+
     @Override
     public String toString() {
         return "InsuranceCard{" +
                 "cardNumber=" + cardNumber +
-                ", cardHolder=" + cardHolder +
+                ", cardHolder=" + getCardHolder() +
                 ", policyOwner='" + policyOwner + '\'' +
                 ", exiprationDate='" + exiprationDate + '\'' +
                 '}';

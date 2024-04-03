@@ -57,20 +57,21 @@ public abstract class Customer implements ClaimProcessManager {
     }
 
 
-//    @Override
-//    public String toString() {
-//        return "Customer{" +
-//                "cusID='" + cusID + '\'' +
-//                ", cusName='" + cusName + '\'' +
-//                '}';
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "cusID='" + cusID + '\'' +
+                ", cusName='" + cusName + '\'' +
+                '}';
+    }
+
+//        public void showInfo(){
+//        System.out.println("CusID: " + cusID +
+//                            ", CusName: " + cusName);
+//        for(int i = 0; i < listOfClaims.size(); i++){
+//            System.out.printf("Claim %d: " + listOfClaims.get(i) + "\n", i + 1);
+//        }
+//        System.out.println(insuranceCard);
 //    }
 
-        public void showInfo(){
-        System.out.println("CusID: " + cusID +
-                            ", CusName: " + cusName);
-        for(int i = 0; i < listOfClaims.size(); i++){
-            System.out.printf("Claim %d: " + listOfClaims.get(i) + "\n", i + 1);
-        }
-        System.out.println(insuranceCard);
-    }
 }
