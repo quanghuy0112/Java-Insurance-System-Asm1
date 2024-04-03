@@ -10,12 +10,12 @@ public class ClaimOfCustomer {
     public ClaimOfCustomer(){
         this.claimToCustomer = new HashMap<String, List<Claim>>();
     }
-    public List<Claim> getAllClaim(Customer customer){
+    public List<Claim> getAllClaim(ClaimProcessManager customer){
         List<Claim> claimList = claimToCustomer.get(customer.getCusID());
         return claimList;
     }
 
-    public List<Claim> addClaimToCustomer(Customer customer, Claim claim){
+    public List<Claim> addClaimToCustomer(ClaimProcessManager customer, Claim claim){
         ArrayList<Claim> claims = new ArrayList<Claim>();
         claims.add(claim);
         List<Claim> preClaim = claimToCustomer.put(customer.getCusID(), claims);
@@ -33,7 +33,7 @@ public class ClaimOfCustomer {
         }
     }
 
-    boolean removeClaimCustomers(Customer customer, Claim claim){
+    boolean removeClaimCustomers(ClaimProcessManager customer, Claim claim){
         boolean isDoing = false;
         List<Claim> claims = getAllClaim(customer);
         if(claims != null){
@@ -43,6 +43,17 @@ public class ClaimOfCustomer {
         return isDoing;
     }
 
+    public Claim getOneClaim(ClaimProcessManager customer, int claimID) {
+        List<Claim> claimList = getAllClaim(customer);
+        if (claimList != null) {
+            for (Claim claim : claimList) {
+                if (claim.getClaimID() == claimID) {
+                    return claim;
+                }
+            }
+        }
+        return null; // Claim not found
+    }
 
 
 

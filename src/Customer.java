@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Customer {
+public abstract class Customer implements ClaimProcessManager {
     private String cusID;
     private String cusName;
     private InsuranceCard insuranceCard;
@@ -14,12 +14,21 @@ public abstract class Customer {
         listOfClaims = new ArrayList<Claim>();
     }
 
-    public Customer(String cusID, String cusName, InsuranceCard insuranceCard) {
+//    public Customer(String cusID, String cusName, InsuranceCard insuranceCard) {
+//        this.cusID = cusID;
+//        this.cusName = cusName;
+//        this.insuranceCard = insuranceCard;
+//        listOfClaims = new ArrayList<Claim>();
+//    }
+
+
+    public Customer(String cusID, String cusName) {
         this.cusID = cusID;
         this.cusName = cusName;
-        this.insuranceCard = insuranceCard;
+        this.insuranceCard = null;
         listOfClaims = new ArrayList<Claim>();
     }
+
 
     public String getCusID() {
         return cusID;
@@ -40,13 +49,23 @@ public abstract class Customer {
 
 
     public boolean addClaim(Claim c){
-        c.getClaimDate();
-        c.getInsuredPerson();
+        //c.getClaimDate();
+//        c.getInsuredPerson();
         listOfClaims.add(c);
+        c.setInsuredPerson(this);
         return true;
     }
 
-    public void showInfo(){
+
+//    @Override
+//    public String toString() {
+//        return "Customer{" +
+//                "cusID='" + cusID + '\'' +
+//                ", cusName='" + cusName + '\'' +
+//                '}';
+//    }
+
+        public void showInfo(){
         System.out.println("CusID: " + cusID +
                             ", CusName: " + cusName);
         for(int i = 0; i < listOfClaims.size(); i++){

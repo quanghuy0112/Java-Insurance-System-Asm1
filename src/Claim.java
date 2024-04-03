@@ -11,9 +11,12 @@ public class Claim {
     private List<Document> documents;
     private double claimAmount;
     private BankInfo receiveBankInfo;
-    private enum status {New, Processing, Done};
 
-    public Claim(){
+    public enum status {New, Processing, Done}
+
+    ;
+
+    public Claim() {
         this.claimID = 0;
         this.claimDate = null;
         this.examDate = "Default";
@@ -22,7 +25,18 @@ public class Claim {
         documents = new ArrayList<Document>();
     }
 
-    public Claim(int claimID, Customer insuredPerson, InsuranceCard cardNumber, String examDate, double claimAmount, BankInfo receiveBankInfo) {
+//    public Claim(int claimID, Customer insuredPerson, InsuranceCard cardNumber, String examDate, double claimAmount, BankInfo receiveBankInfo) {
+//        this.claimID = claimID;
+//        this.claimDate = null;
+//        this.examDate = examDate;
+//        this.insuredPerson = insuredPerson;
+//        this.cardNumber = cardNumber;
+//        this.receiveBankInfo = receiveBankInfo;
+//        this.claimAmount = claimAmount;
+//        documents = new ArrayList<Document>();
+//    }
+
+    public Claim(int claimID, InsuranceCard cardNumber, String examDate, double claimAmount, BankInfo receiveBankInfo) {
         this.claimID = claimID;
         this.claimDate = null;
         this.examDate = examDate;
@@ -32,6 +46,19 @@ public class Claim {
         this.claimAmount = claimAmount;
         documents = new ArrayList<Document>();
     }
+
+//    public Claim(int claimID, String examDate, double claimAmount, BankInfo receiveBankInfo) {
+//        this.claimID = claimID;
+//        this.claimDate = null;
+//        this.examDate = examDate;
+//        this.insuredPerson = insuredPerson;
+//        this.cardNumber = cardNumber;
+//        this.receiveBankInfo = receiveBankInfo;
+//        this.claimAmount = claimAmount;
+//        documents = new ArrayList<Document>();
+//    }
+//
+
 
     public int getClaimID() {
         return claimID;
@@ -65,31 +92,22 @@ public class Claim {
         this.insuredPerson = insuredPerson;
     }
 
+    public boolean addCustomer(Customer insuredPerson){
+        return insuredPerson.addClaim(this);
+    }
+
     public BankInfo getReceiveBankInfo() {
         return receiveBankInfo;
     }
-
-//    @Override
-//    public String toString() {
-//        return "{" +
-//                "claimID=" + claimID +
-//                ", claimDate=" + claimDate +
-//                ", insuredPerson=" + getInsuredPerson() +
-//                ", cardNumber=" + getCardNumber() +
-//                ", examDate=" + examDate +
-//                ", documents=" + documents +
-//                ", claimAmount=" + claimAmount +
-//                '}';
-//    }
 
 
     @Override
     public String toString() {
         return "Claim{" +
                 "claimID=" + claimID +
-                ", claimDate=" + claimDate +
+                ", claimDate=" + getClaimDate() +
                 ", insuredPerson=" + getInsuredPerson() +
-                ", cardNumber=" + getCardNumber()  +
+                ", cardNumber=" + getCardNumber() +
                 ", examDate='" + examDate + '\'' +
                 ", documents=" + documents +
                 ", claimAmount=" + claimAmount +

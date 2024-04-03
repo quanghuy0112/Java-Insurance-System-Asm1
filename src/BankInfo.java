@@ -25,6 +25,18 @@ public class BankInfo {
         return number;
     }
 
+    public void setBank(String bank) {
+        this.bank = bank;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     @Override
     public String toString() {
         return "BankInfo{" +
