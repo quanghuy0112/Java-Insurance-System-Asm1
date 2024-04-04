@@ -38,7 +38,7 @@ public abstract class Customer implements ClaimProcessManager {
         return cusName;
     }
 
-    public int getInsuranceCard() {
+    public String getInsuranceCard() {
         return insuranceCard.getCardNumber();
     }
 
@@ -48,30 +48,54 @@ public abstract class Customer implements ClaimProcessManager {
 
 
 
-    public boolean addClaim(Claim c){
-        //c.getClaimDate();
+    public boolean addClaim(Claim claim){
+        if(claim.getInsuredPerson() != null){
+            return false;
+        }
+        claim.getClaimDate();
 //        c.getInsuredPerson();
-        listOfClaims.add(c);
-        c.setInsuredPerson(this);
+        listOfClaims.add(claim);
+        claim.setInsuredPerson(this);
+        return true;
+    }
+
+    public boolean removeClaim(Claim claim) {
+        // Check if the claim exists in the list of claims
+        if (listOfClaims.contains(claim)) {
+            // Remove the claim from the list
+            listOfClaims.remove(claim);
+            // Update the reference to the insured person of the claim
+            claim.setInsuredPerson(null);
+            return true; // Claim removed successfully
+        }
+        return false; // Claim not found in the list
+    }
+
+    public boolean addInsuranceCard(InsuranceCard insuranceCard){
+        if(insuranceCard.getCardHolder() != null){
+            return false;
+        }
+        this.insuranceCard = insuranceCard;
+        insuranceCard.setCardHolder(this);
         return true;
     }
 
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "cusID='" + cusID + '\'' +
-                ", cusName='" + cusName + '\'' +
-                '}';
-    }
-
-//        public void showInfo(){
-//        System.out.println("CusID: " + cusID +
-//                            ", CusName: " + cusName);
-//        for(int i = 0; i < listOfClaims.size(); i++){
-//            System.out.printf("Claim %d: " + listOfClaims.get(i) + "\n", i + 1);
-//        }
-//        System.out.println(insuranceCard);
+//    @Override
+//    public String toString() {
+//        return "Customer{" +
+//                "cusID='" + cusID + '\'' +
+//                ", cusName='" + cusName + '\'' +
+//                '}';
 //    }
+
+        public void showInfo(){
+        System.out.println("CusID: " + cusID +
+                            ", CusName: " + cusName);
+        for(int i = 0; i < listOfClaims.size(); i++){
+            System.out.printf("Claim %d: " + listOfClaims.get(i) + "\n", i + 1);
+        }
+        System.out.println(insuranceCard);
+    }
 
 }

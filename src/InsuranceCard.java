@@ -1,11 +1,11 @@
 public class InsuranceCard {
-    private int cardNumber;
+    private String cardNumber;
     private Customer cardHolder;
     private String policyOwner;
     private String exiprationDate;
 
     public InsuranceCard() {
-        this.cardNumber = 0;
+        this.cardNumber = null;
         this.policyOwner = "Default";
         this.policyOwner = null;
     }
@@ -17,7 +17,7 @@ public class InsuranceCard {
 //        this.exiprationDate = exiprationDate;
 //    }
 
-    public InsuranceCard(int cardNumber, String policyOwner, String exiprationDate) {
+    public InsuranceCard(String cardNumber, String policyOwner, String exiprationDate) {
         this.cardNumber = cardNumber;
         this.cardHolder = cardHolder;
         this.policyOwner = policyOwner;
@@ -27,12 +27,12 @@ public class InsuranceCard {
 
 
 
-    public int getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public String getCardHolder() {
-        return cardHolder.getCusName();
+    public Customer getCardHolder() {
+        return cardHolder;
     }
 
     public void setCardHolder(Customer cardHolder) {
@@ -43,7 +43,7 @@ public class InsuranceCard {
     public String toString() {
         return "InsuranceCard{" +
                 "cardNumber=" + cardNumber +
-                ", cardHolder=" + getCardHolder() +
+                ", cardHolder=" + cardHolder.getCusName() +
                 ", policyOwner='" + policyOwner + '\'' +
                 ", exiprationDate='" + exiprationDate + '\'' +
                 '}';

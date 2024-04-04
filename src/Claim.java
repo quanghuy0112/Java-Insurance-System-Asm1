@@ -3,10 +3,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Claim {
-    private int claimID;
+    private String claimID;
     private LocalDate claimDate;
     private Customer insuredPerson;
-    private InsuranceCard cardNumber;
+    private String cardNumber;
     private String examDate;
     private List<Document> documents;
     private double claimAmount;
@@ -17,7 +17,7 @@ public class Claim {
     ;
 
     public Claim() {
-        this.claimID = 0;
+        this.claimID = null;
         this.claimDate = null;
         this.examDate = "Default";
         this.claimAmount = 0;
@@ -47,12 +47,23 @@ public class Claim {
 //        documents = new ArrayList<Document>();
 //    }
 
-    public Claim(int claimID, String examDate, double claimAmount, BankInfo receiveBankInfo) {
+//    public Claim(int claimID, String examDate, double claimAmount, BankInfo receiveBankInfo) {
+//        this.claimID = claimID;
+//        this.claimDate = null;
+//        this.examDate = examDate;
+//        this.insuredPerson = insuredPerson;
+//        this.cardNumber = cardNumber;
+//        this.receiveBankInfo = receiveBankInfo;
+//        this.claimAmount = claimAmount;
+//        documents = new ArrayList<Document>();
+//    }
+
+        public Claim(String claimID, String examDate, double claimAmount) {
         this.claimID = claimID;
         this.claimDate = null;
         this.examDate = examDate;
-        this.insuredPerson = insuredPerson;
-        this.cardNumber = cardNumber;
+        //this.insuredPerson = insuredPerson;
+        //this.cardNumber = cardNumber;
         this.receiveBankInfo = receiveBankInfo;
         this.claimAmount = claimAmount;
         documents = new ArrayList<Document>();
@@ -60,7 +71,7 @@ public class Claim {
 
 
 
-    public int getClaimID() {
+    public String getClaimID() {
         return claimID;
     }
 
@@ -68,12 +79,12 @@ public class Claim {
         return claimDate = LocalDate.now();
     }
 
-    public String getInsuredPerson() {
-        return insuredPerson.getCusName();
+    public Customer getInsuredPerson() {
+        return insuredPerson;
     }
 
-    public int getCardNumber() {
-        return cardNumber.getCardNumber();
+    public String getCardNumber() {
+        return cardNumber;
     }
 
     public String getExamDate() {
@@ -92,8 +103,8 @@ public class Claim {
         this.insuredPerson = insuredPerson;
     }
 
-    public void setCardNumber(InsuranceCard cardNumber) {
-        this.cardNumber = cardNumber;
+    public void setCardNumber() {
+        this.cardNumber = this.insuredPerson.getInsuranceCard();
     }
 
     public boolean addCustomer(Customer insuredPerson){
@@ -104,18 +115,22 @@ public class Claim {
         return receiveBankInfo;
     }
 
+    public void setReceiveBankInfo(BankInfo receiveBankInfo) {
+        this.receiveBankInfo = receiveBankInfo;
+    }
+
 
     @Override
     public String toString() {
         return "Claim{" +
                 "claimID=" + claimID +
-                ", claimDate=" + getClaimDate() +
-                ", insuredPerson=" + getInsuredPerson() +
-                ", cardNumber=" + getCardNumber() +
+                ", claimDate=" + claimDate +
+                ", insuredPerson=" + insuredPerson.getCusName() +
+                ", cardNumber=" + cardNumber+
                 ", examDate='" + examDate + '\'' +
                 ", documents=" + documents +
                 ", claimAmount=" + claimAmount +
-                ", receiveBankInfo=" + getReceiveBankInfo() +
+                ", receiveBankInfo=" + receiveBankInfo +
                 '}';
     }
 }

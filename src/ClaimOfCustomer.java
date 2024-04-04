@@ -43,11 +43,11 @@ public class ClaimOfCustomer {
         return isDoing;
     }
 
-    public Claim getOneClaim(ClaimProcessManager customer, int claimID) {
+    public Claim getOneClaim(ClaimProcessManager customer, String claimID) {
         List<Claim> claimList = getAllClaim(customer);
         if (claimList != null) {
             for (Claim claim : claimList) {
-                if (claim.getClaimID() == claimID) {
+                if ((claim.getClaimID()).equals(claimID)) {
                     return claim;
                 }
             }

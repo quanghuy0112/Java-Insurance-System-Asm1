@@ -19,7 +19,17 @@ public class PolicyHolder extends Customer{
         listOfDependent = new ArrayList<Dependent>();
     }
 
+
     public List<Dependent> getListOfDependent() {
         return listOfDependent;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "cusID='" + getCusID() + '\'' +
+                ", cusName='" + getCusName() + '\'' +
+                '}';
+    }
+
 }
