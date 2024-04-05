@@ -16,21 +16,21 @@ public class AdminSystem {
 
         Claim claim1 = new Claim("123", "2023-10-01", 500);
         Claim claim2 = new Claim("234", "2024-03-04", 1000);
-//        claim1.setInsuredPerson(cus1);
-//        claim2.setInsuredPerson(cus1);
-//        claim1.setCardNumber(insuranceCard1);
-//        claim2.setCardNumber(insuranceCard1);
+        claim1.setInsuredPerson(cus1);
+        claim2.setInsuredPerson(cus1);
+//        claim1.setCardNumber();
+//        claim2.setCardNumber();
         claim1.setReceiveBankInfo(bank1);
 
         insuranceCard1.setCardHolder(cus1);
 
 
 //        ClaimOfCustomer claimManager = new ClaimOfCustomer();
-        InsuranceOfCustomer insuranceManager = new InsuranceOfCustomer();
-
-        insuranceManager.addInsuranceToCustomer(cus1, insuranceCard1);
-        System.out.println(insuranceManager.getInsuranceCard(cus1));
-
+//        InsuranceOfCustomer insuranceManager = new InsuranceOfCustomer();
+//
+//        insuranceManager.addInsuranceToCustomer(cus1, insuranceCard1);
+//        System.out.println(insuranceManager.getInsuranceCard(cus1));
+//
 
 
         cus1.addClaim(claim1);

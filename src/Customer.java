@@ -38,9 +38,10 @@ public abstract class Customer implements ClaimProcessManager {
         return cusName;
     }
 
-    public String getInsuranceCard() {
-        return insuranceCard.getCardNumber();
+    public InsuranceCard getInsuranceCard() {
+        return insuranceCard;
     }
+
 
     public List<Claim> getListOfClaims() {
         return listOfClaims;
@@ -92,10 +93,19 @@ public abstract class Customer implements ClaimProcessManager {
         public void showInfo(){
         System.out.println("CusID: " + cusID +
                             ", CusName: " + cusName);
+        System.out.println(insuranceCard);
         for(int i = 0; i < listOfClaims.size(); i++){
             System.out.printf("Claim %d: " + listOfClaims.get(i) + "\n", i + 1);
         }
-        System.out.println(insuranceCard);
     }
 
+//    @Override
+//    public String toString() {
+//        return "Customer{" +
+//                "cusID='" + cusID + '\'' +
+//                ", cusName='" + cusName + '\'' +
+//                ", insuranceCard=" + insuranceCard +
+//                ", listOfClaims=" + listOfClaims +
+//                '}';
+//    }
 }

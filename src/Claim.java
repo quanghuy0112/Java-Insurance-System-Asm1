@@ -25,39 +25,6 @@ public class Claim {
         documents = new ArrayList<Document>();
     }
 
-//    public Claim(int claimID, Customer insuredPerson, InsuranceCard cardNumber, String examDate, double claimAmount, BankInfo receiveBankInfo) {
-//        this.claimID = claimID;
-//        this.claimDate = null;
-//        this.examDate = examDate;
-//        this.insuredPerson = insuredPerson;
-//        this.cardNumber = cardNumber;
-//        this.receiveBankInfo = receiveBankInfo;
-//        this.claimAmount = claimAmount;
-//        documents = new ArrayList<Document>();
-//    }
-
-//    public Claim(int claimID, InsuranceCard cardNumber, String examDate, double claimAmount, BankInfo receiveBankInfo) {
-//        this.claimID = claimID;
-//        this.claimDate = null;
-//        this.examDate = examDate;
-//        this.insuredPerson = insuredPerson;
-//        this.cardNumber = cardNumber;
-//        this.receiveBankInfo = receiveBankInfo;
-//        this.claimAmount = claimAmount;
-//        documents = new ArrayList<Document>();
-//    }
-
-//    public Claim(int claimID, String examDate, double claimAmount, BankInfo receiveBankInfo) {
-//        this.claimID = claimID;
-//        this.claimDate = null;
-//        this.examDate = examDate;
-//        this.insuredPerson = insuredPerson;
-//        this.cardNumber = cardNumber;
-//        this.receiveBankInfo = receiveBankInfo;
-//        this.claimAmount = claimAmount;
-//        documents = new ArrayList<Document>();
-//    }
-
         public Claim(String claimID, String examDate, double claimAmount) {
         this.claimID = claimID;
         this.claimDate = null;
@@ -103,8 +70,12 @@ public class Claim {
         this.insuredPerson = insuredPerson;
     }
 
-    public void setCardNumber() {
-        this.cardNumber = this.insuredPerson.getInsuranceCard();
+    public String setCardNumber() {
+        if (insuredPerson != null) {
+            this.cardNumber = this.insuredPerson.getInsuranceCard().getCardNumber();
+
+        }
+        return this.cardNumber;
     }
 
     public boolean addCustomer(Customer insuredPerson){
@@ -120,13 +91,14 @@ public class Claim {
     }
 
 
+
     @Override
     public String toString() {
         return "Claim{" +
                 "claimID=" + claimID +
                 ", claimDate=" + claimDate +
                 ", insuredPerson=" + insuredPerson.getCusName() +
-                ", cardNumber=" + cardNumber+
+                ", cardNumber=" + setCardNumber() +
                 ", examDate='" + examDate + '\'' +
                 ", documents=" + documents +
                 ", claimAmount=" + claimAmount +

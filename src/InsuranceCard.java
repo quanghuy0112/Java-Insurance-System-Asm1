@@ -26,7 +26,6 @@ public class InsuranceCard {
 
 
 
-
     public String getCardNumber() {
         return cardNumber;
     }
