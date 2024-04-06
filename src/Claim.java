@@ -105,8 +105,6 @@ public class Claim {
     public void setReceiveBankInfo(BankInfo receiveBankInfo) {
         this.receiveBankInfo = receiveBankInfo;
     }
-
-
     @Override
     public String toString() {
         return "Claim{" +

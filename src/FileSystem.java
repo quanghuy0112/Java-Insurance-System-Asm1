@@ -40,8 +40,8 @@ public class FileSystem {
         for (String[] data : listOfData) {
             String cardNumber = data[0].trim();
             String policyOwner = data[1].trim();
-            String expirationDate = data[2].trim();
-            InsuranceCard insuranceInfo = new InsuranceCard(cardNumber, policyOwner, expirationDate);
+//            String expirationDate = data[2].trim();
+            InsuranceCard insuranceInfo = new InsuranceCard(cardNumber, policyOwner);
             insuranceCardList.add(insuranceInfo);
         }
         return insuranceCardList;

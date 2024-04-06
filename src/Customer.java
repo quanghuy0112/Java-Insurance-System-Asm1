@@ -14,14 +14,6 @@ public abstract class Customer implements ClaimProcessManager {
         listOfClaims = new ArrayList<Claim>();
     }
 
-//    public Customer(String cusID, String cusName, InsuranceCard insuranceCard) {
-//        this.cusID = cusID;
-//        this.cusName = cusName;
-//        this.insuranceCard = insuranceCard;
-//        listOfClaims = new ArrayList<Claim>();
-//    }
-
-
     public Customer(String cusID, String cusName) {
         this.cusID = cusID;
         this.cusName = cusName;
@@ -29,20 +21,15 @@ public abstract class Customer implements ClaimProcessManager {
         listOfClaims = new ArrayList<Claim>();
     }
 
-
     public String getCusID() {
         return cusID;
     }
-
     public String getCusName() {
         return cusName;
     }
-
     public InsuranceCard getInsuranceCard() {
         return insuranceCard;
     }
-
-
     public List<Claim> getListOfClaims() {
         return listOfClaims;
     }
@@ -73,14 +60,13 @@ public abstract class Customer implements ClaimProcessManager {
     }
 
     public boolean addInsuranceCard(InsuranceCard insuranceCard){
-        if(insuranceCard.getCardHolder() != null){
-            return false;
-        }
+        //if(insuranceCard.getCardHolder() != null){
+          //  return false;
+       // }
         this.insuranceCard = insuranceCard;
         insuranceCard.setCardHolder(this);
         return true;
     }
-
 
     @Override
     public String toString() {

@@ -1,8 +1,10 @@
+import java.time.LocalDate;
+
 public class InsuranceCard {
     private String cardNumber;
     private Customer cardHolder;
     private String policyOwner;
-    private String exiprationDate;
+    private LocalDate expirationDate;
 
     public InsuranceCard() {
         this.cardNumber = null;
@@ -10,21 +12,23 @@ public class InsuranceCard {
         this.policyOwner = null;
     }
 
-//    public InsuranceCard(int cardNumber, Customer cardHolder, String policyOwner, String exiprationDate) {
+//    public InsuranceCard(String cardNumber, String policyOwner, String exiprationDate) {
 //        this.cardNumber = cardNumber;
 //        this.cardHolder = cardHolder;
 //        this.policyOwner = policyOwner;
 //        this.exiprationDate = exiprationDate;
 //    }
 
-    public InsuranceCard(String cardNumber, String policyOwner, String exiprationDate) {
+    public InsuranceCard(String cardNumber, String policyOwner) {
         this.cardNumber = cardNumber;
         this.cardHolder = cardHolder;
         this.policyOwner = policyOwner;
-        this.exiprationDate = exiprationDate;
+        this.expirationDate = expirationDate;
     }
 
-
+    public void setExiprationDate(LocalDate exiprationDate) {
+        this.expirationDate = exiprationDate;
+    }
 
     public String getCardNumber() {
         return cardNumber;
@@ -44,7 +48,7 @@ public class InsuranceCard {
                 "cardNumber=" + cardNumber +
                 ", cardHolder=" + cardHolder.getCusName() +
                 ", policyOwner='" + policyOwner + '\'' +
-                ", exiprationDate='" + exiprationDate + '\'' +
+                ", exiprationDate='" + expirationDate + '\'' +
                 '}';
     }
 }
