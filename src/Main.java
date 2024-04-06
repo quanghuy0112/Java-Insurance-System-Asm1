@@ -6,10 +6,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        SystemManager.addInsuranceCardToCustomer();
+        SystemManager.addInsurance();
+//        SystemManager.addInsuranceCardToCustomer();
         SystemManager.addClaimToCustomer();
 //        SystemManager.removeClaimFromCustomer();
 //        SystemManager.setBank();
+        SystemManager.viewAllClaim();
 
     }
 }

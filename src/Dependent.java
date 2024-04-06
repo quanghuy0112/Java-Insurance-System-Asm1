@@ -6,11 +6,6 @@ public class Dependent extends Customer{
         this.relationship = "Default";
     }
 
-//    public Dependent(String cusID, String cusName, InsuranceCard insuranceCard, String relationship) {
-//        super(cusID, cusName, insuranceCard);
-//        this.relationship = relationship;
-//    }
-
         public Dependent(String cusID, String cusName, String relationship) {
         super(cusID, cusName);
         this.relationship = relationship;

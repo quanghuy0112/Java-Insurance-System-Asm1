@@ -8,6 +8,18 @@ public class SystemManager {
     static List<InsuranceCard> insuranceCardList = FileSystem.readInsuranceFile();
     static List<Claim> claimList = FileSystem.readClaimFile();
 
+    public static void addInsurance() {
+        for (int i = 0; i < policyHolderList.size(); i++) {
+            for (int j = 0; j < insuranceCardList.size(); j++) {
+                if (i == j) {
+                    policyHolderList.get(i).addInsuranceCard(insuranceCardList.get(j));
+                    insuranceCardList.get(j).setCardHolder(policyHolderList.get(i));
+//                    policyHolderList.get(i).showInfo();
+                }
+            }
+        }
+    }
+
     public static void addInsuranceCardToCustomer() {
         System.out.println("Enter the CusID: ");
         String cusID = scanner.nextLine();
@@ -69,7 +81,6 @@ public class SystemManager {
                             policyHolderList.get(i).addClaim(claimList.get(j));
                             claimList.get(j).setInsuredPerson(policyHolderList.get(i));
                             claimList.get(j).setCardNumber();
-                            policyHolderList.get(i).showInfo();
                             System.out.println("Enter the bank: ");
                             String bank = scanner.nextLine();
                             System.out.println("Enter the name: ");
@@ -77,7 +88,8 @@ public class SystemManager {
                             System.out.println("Enter the number: ");
                             String number = scanner.nextLine();
                             claimList.get(j).setReceiveBankInfo(new BankInfo(bank, name, number));
-                            System.out.println(claimList.get(j));
+//                            System.out.println(claimList.get(j));
+                            policyHolderList.get(i).showInfo();
 //                            break; // Exit the claim search loop if claim found
                         }
                     }
@@ -140,35 +152,16 @@ public class SystemManager {
         }
     }
 
-    public static void setBank() {
-        while (true) {
-            System.out.println("Enter the claimID you want to set bank (or type 'quit' to exit): ");
-            String claimID = scanner.nextLine();
-
-            if (claimID.equals("quit")) {
-                System.out.println("Exiting claim input.");
-                break; // Exit the claim input loop if the user types 'quit'
-            }
-            boolean foundClaim = false;
-            for (int j = 0; j < claimList.size(); j++) {
-                if (claimID.equals(claimList.get(j).getClaimID())) {
-                    foundClaim = true;
-                    System.out.println("Enter the bank: ");
-                    String bank = scanner.nextLine();
-                    System.out.println("Enter the name: ");
-                    String name = scanner.nextLine();
-                    System.out.println("Enter the number: ");
-                    String number = scanner.nextLine();
-                    claimList.get(j).setReceiveBankInfo(new BankInfo(bank, name, number));
-                    System.out.println(claimList.get(j));
-                }
-            }
-
-            if (!foundClaim) {
-                System.out.println("Claim with ID " + claimID + " not found.");
+    public static void viewAllClaim() {
+        System.out.println("Enter the CusID: ");
+        String cusID = scanner.nextLine();
+        for (int i = 0; i < policyHolderList.size(); i++) {
+            if (cusID.equals(policyHolderList.get(i).getCusID())) {
+                policyHolderList.get(i).showInfo();
             }
         }
-
     }
+
+
 }
 
