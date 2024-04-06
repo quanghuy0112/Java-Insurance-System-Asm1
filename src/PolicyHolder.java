@@ -19,12 +19,28 @@ public class PolicyHolder extends Customer{
         return listOfDependent;
     }
 
+    public void setListOfDependent(List<Dependent> listOfDependent) {
+        this.listOfDependent = listOfDependent;
+    }
+
+    public boolean addDependent(Dependent dependent){
+        if(listOfDependent.contains(dependent)){
+            return false;
+        }
+        listOfDependent.add(dependent);
+        return true;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
                 "cusID='" + getCusID() + '\'' +
                 ", cusName='" + getCusName() + '\'' +
                 '}';
+    }
+
+    public void showListOfDependent(){
+        System.out.println("List of dependent: " + listOfDependent + '\'');
     }
 
 }

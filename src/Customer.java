@@ -50,7 +50,7 @@ public abstract class Customer implements ClaimProcessManager {
 
 
     public boolean addClaim(Claim claim){
-        if(claim.getInsuredPerson() != null){
+        if(listOfClaims.contains(claim) && claim.getInsuredPerson() != null){
             return false;
         }
         claim.getClaimDate();
@@ -82,13 +82,13 @@ public abstract class Customer implements ClaimProcessManager {
     }
 
 
-//    @Override
-//    public String toString() {
-//        return "Customer{" +
-//                "cusID='" + cusID + '\'' +
-//                ", cusName='" + cusName + '\'' +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "cusID='" + cusID + '\'' +
+                ", cusName='" + cusName + '\'' +
+                '}';
+    }
 
         public void showInfo(){
         System.out.println("CusID: " + cusID +
@@ -99,13 +99,4 @@ public abstract class Customer implements ClaimProcessManager {
         }
     }
 
-//    @Override
-//    public String toString() {
-//        return "Customer{" +
-//                "cusID='" + cusID + '\'' +
-//                ", cusName='" + cusName + '\'' +
-//                ", insuranceCard=" + insuranceCard +
-//                ", listOfClaims=" + listOfClaims +
-//                '}';
-//    }
 }

@@ -8,10 +8,17 @@ public class Main {
 
         SystemManager.addInsurance();
 //        SystemManager.addInsuranceCardToCustomer();
-        SystemManager.addClaimToCustomer();
+//        SystemManager.addClaimToCustomer();
 //        SystemManager.removeClaimFromCustomer();
 //        SystemManager.setBank();
-        SystemManager.viewAllClaim();
+//        SystemManager.viewAllClaim();
+//        SystemManager.viewOneClaim();
+//        SystemManager.addDependentToPolicyHolder();
+
+
+
+
+
 
     }
 }

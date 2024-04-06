@@ -7,7 +7,7 @@ public class FileSystem {
 
     public static List<PolicyHolder> readPolicyHolderFile() {
         List<PolicyHolder> policyHolderList = new ArrayList<>();
-        dataLoader = new LoadDataFromFile("C:\\RMIT Programing\\Java Programming\\asm1\\src\\customer.txt");
+        dataLoader = new LoadDataFromFile("C:\\RMIT Programing\\Java Programming\\asm1\\src\\policyHolder.txt");
         listOfData = dataLoader.loadDataFromFile();
 
         for (String[] data : listOfData) {
@@ -19,6 +19,19 @@ public class FileSystem {
        return policyHolderList;
     }
 
+    public static List<Dependent> readDependentFile() {
+        List<Dependent> dependentList = new ArrayList<>();
+        dataLoader = new LoadDataFromFile("C:\\RMIT Programing\\Java Programming\\asm1\\src\\dependent.txt");
+        listOfData = dataLoader.loadDataFromFile();
+
+        for (String[] data : listOfData) {
+            String cusID = data[0].trim();
+            String cusName = data[1].trim();
+            Customer cusInfo = new Dependent(cusID, cusName);
+            dependentList.add((Dependent) cusInfo);
+        }
+        return dependentList;
+    }
     public static List<InsuranceCard> readInsuranceFile() {
         List<InsuranceCard> insuranceCardList = new ArrayList<>();
         dataLoader = new LoadDataFromFile("C:\\RMIT Programing\\Java Programming\\asm1\\src\\insuranceCard.txt");
@@ -38,17 +51,15 @@ public class FileSystem {
         List<Claim> claimList = new ArrayList<>();
         dataLoader = new LoadDataFromFile("C:\\RMIT Programing\\Java Programming\\asm1\\src\\claim.txt");
         listOfData = dataLoader.loadDataFromFile();
-
         for (String[] data : listOfData) {
             String claimID = data[0].trim();
-            String examDate = data[1].trim();
-            double claimAmount = Double.parseDouble(data[2].trim());
-            Claim claimInfo = new Claim(claimID, examDate, claimAmount);
+//            String examDate = data[1].trim();
+            double claimAmount = Double.parseDouble(data[1].trim());
+            Claim claimInfo = new Claim(claimID, claimAmount);
             claimList.add(claimInfo);
         }
         return claimList;
     }
-
 
 
 

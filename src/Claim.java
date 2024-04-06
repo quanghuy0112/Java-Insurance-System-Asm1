@@ -7,35 +7,35 @@ public class Claim {
     private LocalDate claimDate;
     private Customer insuredPerson;
     private String cardNumber;
-    private String examDate;
-    private List<Document> documents;
+    private LocalDate examDate;
+    private String documents;
     private double claimAmount;
     private BankInfo receiveBankInfo;
-
-    public enum status {New, Processing, Done}
+    public ClaimStatus status;
 
     ;
 
     public Claim() {
         this.claimID = null;
         this.claimDate = null;
-        this.examDate = "Default";
+        this.insuredPerson = null;
+        this.examDate = null;
+        this.cardNumber = null;
         this.claimAmount = 0;
         this.receiveBankInfo = null;
-        documents = new ArrayList<Document>();
+        this.documents = null;
     }
 
-        public Claim(String claimID, String examDate, double claimAmount) {
+    public Claim(String claimID, double claimAmount) {
         this.claimID = claimID;
         this.claimDate = null;
-        this.examDate = examDate;
-        //this.insuredPerson = insuredPerson;
-        //this.cardNumber = cardNumber;
-        this.receiveBankInfo = receiveBankInfo;
+        this.examDate = null;
+        this.insuredPerson = null;
+        this.cardNumber = null;
+        this.receiveBankInfo = null;
         this.claimAmount = claimAmount;
-        documents = new ArrayList<Document>();
+        this.documents = null;
     }
-
 
 
     public String getClaimID() {
@@ -54,12 +54,12 @@ public class Claim {
         return cardNumber;
     }
 
-    public String getExamDate() {
+    public LocalDate getExamDate() {
         return examDate;
     }
 
-    public List<Document> getDocuments() {
-        return documents;
+    public void setExamDate(LocalDate examDate) {
+        this.examDate = examDate;
     }
 
     public double getClaimAmount() {
@@ -78,7 +78,23 @@ public class Claim {
         return this.cardNumber;
     }
 
-    public boolean addCustomer(Customer insuredPerson){
+    public String getDocuments() {
+        if (cardNumber != null) {
+            documents = claimID + "_" + cardNumber + "_" + "DocumentName" + ".pdf";
+        }
+        return documents;
+    }
+
+
+    public void setStatus(ClaimStatus status) {
+        this.status = status;
+    }
+
+    public ClaimStatus getStatus() {
+        return status;
+    }
+
+    public boolean addCustomer(Customer insuredPerson) {
         return insuredPerson.addClaim(this);
     }
 
@@ -91,18 +107,18 @@ public class Claim {
     }
 
 
-
     @Override
     public String toString() {
         return "Claim{" +
-                "claimID=" + claimID +
-                ", claimDate=" + claimDate +
-                ", insuredPerson=" + insuredPerson.getCusName() +
-                ", cardNumber=" + setCardNumber() +
-                ", examDate='" + examDate + '\'' +
-                ", documents=" + documents +
-                ", claimAmount=" + claimAmount +
-                ", receiveBankInfo=" + receiveBankInfo +
+                "claimID= " + claimID +
+                ", claimDate= " + claimDate +
+                ", insuredPerson= " + insuredPerson.getCusName() +
+                ", cardNumber= " + setCardNumber() +
+                ", examDate= '" + examDate + '\'' +
+                ", documents= " + documents +
+                ", claimAmount= " + claimAmount +
+                ", receiveBankInfo= " + receiveBankInfo +
+                ", status= " + status +
                 '}';
     }
 }
