@@ -5,14 +5,14 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class SystemManager {
+public class SystemManager implements ClaimProcessManager {
     static Scanner scanner = new Scanner(System.in);
     static List<PolicyHolder> policyHolderList = FileSystem.readPolicyHolderFile();
     static List<Dependent> dependentList = FileSystem.readDependentFile();
     static List<InsuranceCard> insuranceCardList = FileSystem.readInsuranceFile();
     static List<Claim> claimList = FileSystem.readClaimFile();
 
-    public static void addInsurance() {
+    public void addInsurance() {
         for (int i = 0; i < policyHolderList.size(); i++) {
             for (int j = 0; j < insuranceCardList.size(); j++) {
                 if (i == j) {
@@ -23,8 +23,8 @@ public class SystemManager {
             }
         }
     }
-
-    public static void addClaimToCustomer() {
+    @Override
+    public void addClaimToCustomer() {
 
         System.out.println("Enter the customer ID you want to add claim: ");
         String cusID = scanner.nextLine();
@@ -35,7 +35,7 @@ public class SystemManager {
 
             if (cusID.equals(policyHolderList.get(i).getCusID())) {
                 foundCustomer = true;
-                SystemManager.viewClaimId();
+                viewClaimId();
                 while (true) {
                     System.out.println("Enter the claim ID you want to add (or type 'quit' to exit): ");
                     String claimID = scanner.nextLine();
@@ -77,7 +77,7 @@ public class SystemManager {
 
             if (cusID.equals(dependentList.get(i).getCusID())) {
                 foundCustomer = true;
-                SystemManager.viewClaimId();
+                viewClaimId();
                 while (true) {
                     System.out.println("Enter the claim ID you want to add (or type 'quit' to exit): ");
                     String claimID = scanner.nextLine();
@@ -118,15 +118,15 @@ public class SystemManager {
             System.out.println("Customer with ID " + cusID + " not found.");
         }
     }
-
-    public static void removeClaimFromCustomer() {
-        SystemManager.viewAllPolicyHolder();
-        SystemManager.viewAllDependent();
+    @Override
+    public void removeClaimFromCustomer() {
+        viewAllPolicyHolder();
+        viewAllDependent();
         System.out.println("Enter the Customer ID you want to remove claim: ");
         String cusID = scanner.nextLine();
 
         boolean foundCustomer = false;
-        SystemManager.viewClaimId();
+        viewClaimId();
         for (int i = 0; i < policyHolderList.size(); i++) {
             if (cusID.equals(policyHolderList.get(i).getCusID())) {
                 foundCustomer = true;
@@ -204,10 +204,10 @@ public class SystemManager {
             System.out.println("Customer with ID " + cusID + " not found.");
         }
     }
-
-    public static void viewAllClaim() {
-        SystemManager.viewAllPolicyHolder();
-        SystemManager.viewAllDependent();
+    @Override
+    public void viewAllClaim() {
+        viewAllPolicyHolder();
+        viewAllDependent();
         Boolean foundCustomer = false;
         while (true) {
             System.out.println("Enter the CusID (or type 'quit' to exit): ");
@@ -236,15 +236,15 @@ public class SystemManager {
 
         }
     }
-
-    public static void viewOneClaim() {
-        SystemManager.viewAllPolicyHolder();
-        SystemManager.viewAllDependent();
+    @Override
+    public void viewOneClaim() {
+        viewAllPolicyHolder();
+        viewAllDependent();
         System.out.println("Enter the customer ID you want to view claim: ");
         String cusID = scanner.nextLine();
 
         boolean foundCustomer = false;
-        SystemManager.viewClaimId();
+        viewClaimId();
         for (int i = 0; i < policyHolderList.size(); i++) {
             if (cusID.equals(policyHolderList.get(i).getCusID())) {
                 foundCustomer = true;
@@ -317,10 +317,10 @@ public class SystemManager {
             System.out.println("Customer with ID " + cusID + " not found.");
         }
     }
+    @Override
+    public void setExamDateToClaim() {
 
-    public static void setExamDateToClaim() {
-
-        SystemManager.viewClaimId();
+        viewClaimId();
         while (true) {
             System.out.println("Enter the claimID you want to set exam date (or type 'quit' to exit): ");
             String claimID = scanner.nextLine();
@@ -364,9 +364,9 @@ public class SystemManager {
             }
         }
     }
-
-    public static void setStatus() {
-        SystemManager.viewClaimId();
+    @Override
+    public void setStatus() {
+        viewClaimId();
         while (true) {
 
             System.out.println("Enter the claimID you want to set status (or type 'quit' to exit): ");
@@ -406,9 +406,9 @@ public class SystemManager {
             }
         }
     }
-
-    public static void setBank() {
-        SystemManager.viewClaimId();
+    @Override
+    public void setBank() {
+        viewClaimId();
         while (true) {
             System.out.println("Enter the claimID you want to set bank (or type 'quit' to exit): ");
             String claimID = scanner.nextLine();
@@ -444,7 +444,7 @@ public class SystemManager {
         }
     }
 
-    public static void addDependentToPolicyHolder() {
+    public void addDependentToPolicyHolder() {
         System.out.println("Enter the policy holder ID you want to add dependent: ");
         String cusID = scanner.nextLine();
 
@@ -454,7 +454,7 @@ public class SystemManager {
 
             if (cusID.equals(policyHolderList.get(i).getCusID())) {
                 foundCustomer = true;
-                SystemManager.viewAllDependent();
+                viewAllDependent();
                 while (true) {
                     System.out.println("Enter the dependent ID you want to add (or type 'quit' to exit): ");
                     String claimID = scanner.nextLine();
@@ -488,7 +488,7 @@ public class SystemManager {
         }
     }
 
-    public static void setExpirationDate() {
+    public void setExpirationDate() {
         System.out.println("Enter the insurance number you want to set expiration date: ");
         String insuranceNumber = scanner.nextLine();
         Boolean foundInsuranceCard = false;
@@ -520,27 +520,27 @@ public class SystemManager {
         }
     }
 
-    public static void showAllInsuranceCard() {
+    public void showAllInsuranceCard() {
         for (int j = 0; j < insuranceCardList.size(); j++) {
             System.out.println(insuranceCardList.get(j));
         }
     }
 
-    public static void viewAllPolicyHolder() {
+    public void viewAllPolicyHolder() {
         System.out.println("Policy Holder:");
         for (int i = 0; i < policyHolderList.size(); i++) {
             System.out.println(policyHolderList.get(i));
         }
     }
 
-    public static void viewAllDependent() {
+    public void viewAllDependent() {
         System.out.println("Dependent:");
         for (int i = 0; i < dependentList.size(); i++) {
             System.out.println(dependentList.get(i));
         }
     }
 
-    public static void viewClaimId() {
+    public void viewClaimId() {
         System.out.println("All Claim ID: ");
         for (int j = 0; j < claimList.size(); j++) {
             System.out.println(claimList.get(j).getClaimID());

@@ -3,7 +3,8 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        SystemManager.addInsurance();
+        SystemManager sys = new SystemManager();
+        sys.addInsurance();
         while (true) {
             try {
 
@@ -24,17 +25,17 @@ public class Main {
 
                 if (choice == 1) {
                     System.out.println("All of Customer: ");
-                    SystemManager.viewAllPolicyHolder();
-                    SystemManager.viewAllDependent();
+                    sys.viewAllPolicyHolder();
+                    sys.viewAllDependent();
                 } else if (choice == 2) {
-                    SystemManager.showAllInsuranceCard();
+                    sys.showAllInsuranceCard();
                     while (true) {
                         System.out.println("1. Update the Expiration Date" + "\n"
                                 + "2. Quit" + "\n"
                                 + "Enter your Choice: ");
                         int choice1 = scanner.nextInt();
                         if (choice1 == 1) {
-                            SystemManager.setExpirationDate();
+                            sys.setExpirationDate();
                         } else if (choice1 == 2) {
                             break;
                         } else {
@@ -42,12 +43,12 @@ public class Main {
                         }
                     }
                 } else if (choice == 3) {
-                    SystemManager.viewAllPolicyHolder();
-                    SystemManager.addDependentToPolicyHolder();
+                    sys.viewAllPolicyHolder();
+                    sys.addDependentToPolicyHolder();
                 } else if (choice == 4) {
-                    SystemManager.viewAllPolicyHolder();
-                    SystemManager.viewAllDependent();
-                    SystemManager.addClaimToCustomer();
+                    sys.viewAllPolicyHolder();
+                    sys.viewAllDependent();
+                    sys.addClaimToCustomer();
 
                 } else if (choice == 5) {
                     while (true) {
@@ -58,21 +59,21 @@ public class Main {
                                 + "Enter your choice: ");
                         int choice2 = scanner.nextInt();
                         if (choice2 == 1) {
-                            SystemManager.setBank();
+                            sys.setBank();
                         } else if (choice2 == 2) {
-                            SystemManager.setExamDateToClaim();
+                            sys.setExamDateToClaim();
                         } else if (choice2 == 3) {
-                            SystemManager.setStatus();
+                            sys.setStatus();
                         } else if (choice2 == 4) {
                             break;
                         }
                     }
                 } else if (choice == 6) {
-                    SystemManager.removeClaimFromCustomer();
+                    sys.removeClaimFromCustomer();
                 } else if (choice == 7) {
-                    SystemManager.viewAllClaim();
+                    sys.viewAllClaim();
                 } else if (choice == 8) {
-                    SystemManager.viewOneClaim();
+                    sys.viewOneClaim();
                 } else if (choice == 9) {
                     System.out.println("End the Program. Have a good day!");
                     break;
@@ -80,7 +81,7 @@ public class Main {
 
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input!");
-                SystemManager.scanner.nextLine(); // Consume the invalid input
+                sys.scanner.nextLine(); // Consume the invalid input
             }
         }
     }
