@@ -1,4 +1,5 @@
 package Claim;
+
 import Customer.Customer;
 import InsuranceCard.InsuranceCard;
 
@@ -109,6 +110,7 @@ public class Claim {
     public void setReceiveBankInfo(BankInfo receiveBankInfo) {
         this.receiveBankInfo = receiveBankInfo;
     }
+
     @Override
     public String toString() {
         return "Claim{" +

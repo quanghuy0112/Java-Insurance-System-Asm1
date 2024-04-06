@@ -1,4 +1,5 @@
 package InsuranceCard;
+
 import Customer.Customer;
 import Claim.Claim;
 import System.SystemManager;

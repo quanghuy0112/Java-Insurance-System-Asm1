@@ -31,6 +31,7 @@ public class SystemManager implements ClaimProcessManager {
             }
         }
     }
+
     @Override
     public void addClaimToCustomer() {
 
@@ -126,6 +127,7 @@ public class SystemManager implements ClaimProcessManager {
             System.out.println("Customer with ID " + cusID + " not found.");
         }
     }
+
     @Override
     public void removeClaimFromCustomer() {
         viewAllPolicyHolder();
@@ -212,6 +214,7 @@ public class SystemManager implements ClaimProcessManager {
             System.out.println("Customer with ID " + cusID + " not found.");
         }
     }
+
     @Override
     public void viewAllClaim() {
         viewAllPolicyHolder();
@@ -244,6 +247,7 @@ public class SystemManager implements ClaimProcessManager {
 
         }
     }
+
     @Override
     public void viewOneClaim() {
         viewAllPolicyHolder();
@@ -325,6 +329,7 @@ public class SystemManager implements ClaimProcessManager {
             System.out.println("Customer with ID " + cusID + " not found.");
         }
     }
+
     @Override
     public void setExamDateToClaim() {
 
@@ -372,6 +377,7 @@ public class SystemManager implements ClaimProcessManager {
             }
         }
     }
+
     @Override
     public void setStatus() {
         viewClaimId();
@@ -414,6 +420,7 @@ public class SystemManager implements ClaimProcessManager {
             }
         }
     }
+
     @Override
     public void setBank() {
         viewClaimId();

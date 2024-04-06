@@ -3,10 +3,10 @@ package Customer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PolicyHolder extends Customer{
+public class PolicyHolder extends Customer {
     private List<Dependent> listOfDependent;
 
-    public PolicyHolder(){
+    public PolicyHolder() {
         super();
         listOfDependent = new ArrayList<Dependent>();
     }
@@ -25,8 +25,8 @@ public class PolicyHolder extends Customer{
         this.listOfDependent = listOfDependent;
     }
 
-    public boolean addDependent(Dependent dependent){
-        if(listOfDependent.contains(dependent)){
+    public boolean addDependent(Dependent dependent) {
+        if (listOfDependent.contains(dependent)) {
             return false;
         }
         listOfDependent.add(dependent);
@@ -41,7 +41,7 @@ public class PolicyHolder extends Customer{
                 '}';
     }
 
-    public void showListOfDependent(){
+    public void showListOfDependent() {
         System.out.println("List of dependent: " + listOfDependent + '\'');
     }
 

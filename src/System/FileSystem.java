@@ -24,7 +24,7 @@ public class FileSystem {
             Customer cusInfo = new PolicyHolder(cusID, cusName);
             policyHolderList.add((PolicyHolder) cusInfo);
         }
-       return policyHolderList;
+        return policyHolderList;
     }
 
     public static List<Dependent> readDependentFile() {
@@ -40,6 +40,7 @@ public class FileSystem {
         }
         return dependentList;
     }
+
     public static List<InsuranceCard> readInsuranceFile() {
         List<InsuranceCard> insuranceCardList = new ArrayList<>();
         dataLoader = new LoadDataFromFile("src/InsuranceCard/insuranceCard.txt");
@@ -68,7 +69,6 @@ public class FileSystem {
         }
         return claimList;
     }
-
 
 
 }

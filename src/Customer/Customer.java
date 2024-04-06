@@ -1,10 +1,12 @@
 package Customer;
+
 import Claim.Claim;
 import InsuranceCard.InsuranceCard;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Customer{
+public abstract class Customer {
     private String cusID;
     private String cusName;
     private InsuranceCard insuranceCard;
@@ -27,20 +29,22 @@ public abstract class Customer{
     public String getCusID() {
         return cusID;
     }
+
     public String getCusName() {
         return cusName;
     }
+
     public InsuranceCard getInsuranceCard() {
         return insuranceCard;
     }
+
     public List<Claim> getListOfClaims() {
         return listOfClaims;
     }
 
 
-
-    public boolean addClaim(Claim claim){
-        if(listOfClaims.contains(claim) && claim.getInsuredPerson() != null){
+    public boolean addClaim(Claim claim) {
+        if (listOfClaims.contains(claim) && claim.getInsuredPerson() != null) {
             return false;
         }
         claim.getClaimDate();
@@ -62,10 +66,10 @@ public abstract class Customer{
         return false; // Claim not found in the list
     }
 
-    public boolean addInsuranceCard(InsuranceCard insuranceCard){
+    public boolean addInsuranceCard(InsuranceCard insuranceCard) {
         //if(insuranceCard.getCardHolder() != null){
-          //  return false;
-       // }
+        //  return false;
+        // }
         this.insuranceCard = insuranceCard;
         insuranceCard.setCardHolder(this);
         return true;
@@ -79,11 +83,11 @@ public abstract class Customer{
                 '}';
     }
 
-        public void showInfo(){
+    public void showInfo() {
         System.out.println("CusID: " + cusID +
-                            ", CusName: " + cusName);
+                ", CusName: " + cusName);
         System.out.println(insuranceCard);
-        for(int i = 0; i < listOfClaims.size(); i++){
+        for (int i = 0; i < listOfClaims.size(); i++) {
             System.out.printf("Claim %d: " + listOfClaims.get(i) + "\n", i + 1);
         }
     }

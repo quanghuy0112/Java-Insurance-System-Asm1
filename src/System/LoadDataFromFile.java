@@ -8,43 +8,39 @@ import java.util.Scanner;
 
 public class LoadDataFromFile {
     private String fileName;
+
     public LoadDataFromFile(String fileName) {
         this.fileName = fileName;
     }
 
-    public List<String[]> loadDataFromFile(){
+    public List<String[]> loadDataFromFile() {
         List<String[]> listOfData = new ArrayList<>();
 
         try {
             File file = new File(fileName);
 
-            if(!file.exists()){
+            if (!file.exists()) {
                 System.out.println("The file is not found");
 
             }
             Scanner fileScanner = new Scanner(file);
-            while (fileScanner.hasNextLine()){
+            while (fileScanner.hasNextLine()) {
                 String line = fileScanner.nextLine().trim();
-                if(!line.isEmpty()) {
+                if (!line.isEmpty()) {
                     String[] parts = line.split(",");
                     listOfData.add(parts);
                 }
             }
 
             fileScanner.close();
-        }
-
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return listOfData;
 
     }
-
-
 
 
 }
