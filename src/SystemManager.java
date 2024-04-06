@@ -67,9 +67,17 @@ public class SystemManager {
                                 break;
                             }
                             policyHolderList.get(i).addClaim(claimList.get(j));
-                            policyHolderList.get(i).showInfo();
                             claimList.get(j).setInsuredPerson(policyHolderList.get(i));
                             claimList.get(j).setCardNumber();
+                            policyHolderList.get(i).showInfo();
+                            System.out.println("Enter the bank: ");
+                            String bank = scanner.nextLine();
+                            System.out.println("Enter the name: ");
+                            String name = scanner.nextLine();
+                            System.out.println("Enter the number: ");
+                            String number = scanner.nextLine();
+                            claimList.get(j).setReceiveBankInfo(new BankInfo(bank, name, number));
+                            System.out.println(claimList.get(j));
 //                            break; // Exit the claim search loop if claim found
                         }
                     }
@@ -111,9 +119,10 @@ public class SystemManager {
                             foundClaim = true;
 
                             policyHolderList.get(i).removeClaim(claimList.get(j));
-                            policyHolderList.get(i).showInfo();
                             claimList.get(j).setInsuredPerson(policyHolderList.get(i));
                             claimList.get(j).setCardNumber();
+                            policyHolderList.get(i).showInfo();
+
 //                            break; // Exit the claim search loop if claim found
                         }
                     }
@@ -122,6 +131,7 @@ public class SystemManager {
                         System.out.println("Claim with ID " + claimID + " not found.");
                     }
                 }
+
 
             }
         }
@@ -138,7 +148,6 @@ public class SystemManager {
             if (claimID.equals("quit")) {
                 System.out.println("Exiting claim input.");
                 break; // Exit the claim input loop if the user types 'quit'
-
             }
             boolean foundClaim = false;
             for (int j = 0; j < claimList.size(); j++) {
@@ -146,6 +155,12 @@ public class SystemManager {
                     foundClaim = true;
                     System.out.println("Enter the bank: ");
                     String bank = scanner.nextLine();
+                    System.out.println("Enter the name: ");
+                    String name = scanner.nextLine();
+                    System.out.println("Enter the number: ");
+                    String number = scanner.nextLine();
+                    claimList.get(j).setReceiveBankInfo(new BankInfo(bank, name, number));
+                    System.out.println(claimList.get(j));
                 }
             }
 

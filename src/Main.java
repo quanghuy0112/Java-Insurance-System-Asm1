@@ -8,6 +8,8 @@ public class Main {
 
         SystemManager.addInsuranceCardToCustomer();
         SystemManager.addClaimToCustomer();
-        SystemManager.removeClaimFromCustomer();
+//        SystemManager.removeClaimFromCustomer();
+//        SystemManager.setBank();
+
     }
 }
