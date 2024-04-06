@@ -1,3 +1,8 @@
+package InsuranceCard;
+import Customer.Customer;
+import Claim.Claim;
+import System.SystemManager;
+
 import java.time.LocalDate;
 
 public class InsuranceCard {

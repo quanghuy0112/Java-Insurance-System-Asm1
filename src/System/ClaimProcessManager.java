@@ -1,3 +1,5 @@
+package System;
+
 public interface ClaimProcessManager {
     public void addClaimToCustomer();
     public void removeClaimFromCustomer();

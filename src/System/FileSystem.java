@@ -1,3 +1,11 @@
+package System;
+
+import Customer.Customer;
+import Customer.Dependent;
+import Customer.PolicyHolder;
+import InsuranceCard.InsuranceCard;
+import Claim.Claim;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +15,7 @@ public class FileSystem {
 
     public static List<PolicyHolder> readPolicyHolderFile() {
         List<PolicyHolder> policyHolderList = new ArrayList<>();
-        dataLoader = new LoadDataFromFile("C:\\RMIT Programing\\Java Programming\\asm1\\src\\policyHolder.txt");
+        dataLoader = new LoadDataFromFile("src/Customer/policyHolder.txt");
         listOfData = dataLoader.loadDataFromFile();
 
         for (String[] data : listOfData) {
@@ -21,7 +29,7 @@ public class FileSystem {
 
     public static List<Dependent> readDependentFile() {
         List<Dependent> dependentList = new ArrayList<>();
-        dataLoader = new LoadDataFromFile("C:\\RMIT Programing\\Java Programming\\asm1\\src\\dependent.txt");
+        dataLoader = new LoadDataFromFile("src/Customer/dependent.txt");
         listOfData = dataLoader.loadDataFromFile();
 
         for (String[] data : listOfData) {
@@ -34,7 +42,7 @@ public class FileSystem {
     }
     public static List<InsuranceCard> readInsuranceFile() {
         List<InsuranceCard> insuranceCardList = new ArrayList<>();
-        dataLoader = new LoadDataFromFile("C:\\RMIT Programing\\Java Programming\\asm1\\src\\insuranceCard.txt");
+        dataLoader = new LoadDataFromFile("src/InsuranceCard/insuranceCard.txt");
         listOfData = dataLoader.loadDataFromFile();
 
         for (String[] data : listOfData) {
@@ -49,7 +57,7 @@ public class FileSystem {
 
     public static List<Claim> readClaimFile() {
         List<Claim> claimList = new ArrayList<>();
-        dataLoader = new LoadDataFromFile("C:\\RMIT Programing\\Java Programming\\asm1\\src\\claim.txt");
+        dataLoader = new LoadDataFromFile("src/Claim/claim.txt");
         listOfData = dataLoader.loadDataFromFile();
         for (String[] data : listOfData) {
             String claimID = data[0].trim();

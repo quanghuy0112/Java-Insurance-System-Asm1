@@ -1,3 +1,7 @@
+package Claim;
+import Customer.Customer;
+import InsuranceCard.InsuranceCard;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

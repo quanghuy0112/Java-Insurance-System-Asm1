@@ -1,7 +1,10 @@
+package Customer;
+import Claim.Claim;
+import InsuranceCard.InsuranceCard;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Customer implements ClaimProcessManager {
+public abstract class Customer{
     private String cusID;
     private String cusName;
     private InsuranceCard insuranceCard;

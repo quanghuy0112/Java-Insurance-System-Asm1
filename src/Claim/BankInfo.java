@@ -1,3 +1,5 @@
+package Claim;
+
 public class BankInfo {
     private String bank;
     private String name;
@@ -39,7 +41,7 @@ public class BankInfo {
 
     @Override
     public String toString() {
-        return "BankInfo{" +
+        return "Claim.BankInfo{" +
                 "bank='" + bank + '\'' +
                 ", name='" + name + '\'' +
                 ", number=" + number +

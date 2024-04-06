@@ -1,6 +1,14 @@
+package System;
+
+import InsuranceCard.InsuranceCard;
+import Claim.BankInfo;
+import Claim.ClaimStatus;
+import Customer.Dependent;
+import Customer.PolicyHolder;
+import Claim.Claim;
+
 import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -92,7 +100,7 @@ public class SystemManager implements ClaimProcessManager {
                         if (claimID.equals(claimList.get(j).getClaimID())) {
                             foundClaim = true;
                             if (dependentList.get(i).getInsuranceCard() == null) {
-                                System.out.println("This customer (Dependent) have not added to any Policy Holder! Please add him/her to Policy Holder first");
+                                System.out.println("This customer (Customer.Dependent) have not added to any Policy Holder! Please add him/her to Policy Holder first");
                                 break;
                             }
                             dependentList.get(i).addClaim(claimList.get(j));
@@ -476,7 +484,7 @@ public class SystemManager implements ClaimProcessManager {
                     }
 
                     if (!foundClaim) {
-                        System.out.println("Dependent with ID " + claimID + " not found.");
+                        System.out.println("Customer.Dependent with ID " + claimID + " not found.");
                     }
                 }
 
@@ -534,7 +542,7 @@ public class SystemManager implements ClaimProcessManager {
     }
 
     public void viewAllDependent() {
-        System.out.println("Dependent:");
+        System.out.println("Customer.Dependent:");
         for (int i = 0; i < dependentList.size(); i++) {
             System.out.println(dependentList.get(i));
         }

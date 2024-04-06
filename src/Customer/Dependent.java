@@ -1,3 +1,5 @@
+package Customer;
+
 public class Dependent extends Customer{
 
     public Dependent(){
