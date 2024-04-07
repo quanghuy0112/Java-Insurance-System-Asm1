@@ -105,7 +105,7 @@ public class SystemManager implements ClaimProcessManager {
                         if (claimID.equals(claimList.get(j).getClaimID())) {
                             foundClaim = true;
                             if (dependentList.get(i).getInsuranceCard() == null) {
-                                System.out.println("This customer (Customer.Dependent) have not added to any Policy Holder! Please add him/her to Policy Holder first");
+                                System.out.println("This customer (Dependent) have not added to any Policy Holder! Please add him/her to Policy Holder first");
                                 break;
                             }
                             dependentList.get(i).addClaim(claimList.get(j));
@@ -495,7 +495,7 @@ public class SystemManager implements ClaimProcessManager {
                     }
 
                     if (!foundClaim) {
-                        System.out.println("Customer.Dependent with ID " + claimID + " not found.");
+                        System.out.println("Claim with ID " + claimID + " not found.");
                     }
                 }
 
@@ -553,7 +553,7 @@ public class SystemManager implements ClaimProcessManager {
     }
 
     public void viewAllDependent() {
-        System.out.println("Customer.Dependent:");
+        System.out.println("Dependent:");
         for (int i = 0; i < dependentList.size(); i++) {
             System.out.println(dependentList.get(i));
         }
