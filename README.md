@@ -15,7 +15,7 @@ Download all the file
 
 ## Usage
 
-Download all the file, unzip and run in the main class
+Download all the file, unzip. After unzip this, there will be the file name "Java-Insurance-System-Asm1-main" and inside this file, there will be a file that has the same name with the privious file. The user should open and run the insided file 
 
 ## License
 
