@@ -10,5 +10,4 @@ public class Dependent extends Customer {
         super(cusID, cusName);
     }
 
-
 }

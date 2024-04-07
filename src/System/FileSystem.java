@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileSystem {
-    public static LoadDataFromFile dataLoader;
+    private static LoadDataFromFile dataLoader;
     private static List<String[]> listOfData;
 
     public static List<PolicyHolder> readPolicyHolderFile() {

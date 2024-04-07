@@ -331,7 +331,7 @@ public class SystemManager implements ClaimProcessManager {
     }
 
     @Override
-    public void setExamDateToClaim() {
+    public void setExamDate() {
 
         viewClaimId();
         while (true) {
@@ -520,7 +520,7 @@ public class SystemManager implements ClaimProcessManager {
                     int day = scanner.nextInt();
                     scanner.nextLine();
                     LocalDate date = LocalDate.of(year, month, day);
-                    insuranceCardList.get(j).setExiprationDate(date);
+                    insuranceCardList.get(j).setExpirationDate(date);
                     System.out.println(insuranceCardList.get(j));
                     System.out.println("Set the expiration date successfully");
                     foundInsuranceCard = true;

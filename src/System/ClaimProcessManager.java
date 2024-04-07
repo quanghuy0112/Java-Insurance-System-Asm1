@@ -13,7 +13,7 @@ public interface ClaimProcessManager {
 
     public void setBank();
 
-    public void setExamDateToClaim();
+    public void setExamDate();
 
 
 }

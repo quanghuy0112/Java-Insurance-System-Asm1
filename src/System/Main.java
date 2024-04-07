@@ -13,7 +13,7 @@ public class Main {
                 System.out.println("Welcome to Insurance Management System!" + "\n"
                         + "1. View all Customer" + "\n"
                         + "2. View all Insurance Card" + "\n"
-                        + "3. Add Customer.Dependent to Policy Holder" + "\n"
+                        + "3. Add Dependent to Policy Holder" + "\n"
                         + "4. Add Claim to Customer" + "\n"
                         + "5. Update Claim" + "\n"
                         + "6. Remove Claim from Customer" + "\n"
@@ -63,7 +63,7 @@ public class Main {
                         if (choice2 == 1) {
                             sys.setBank();
                         } else if (choice2 == 2) {
-                            sys.setExamDateToClaim();
+                            sys.setExamDate();
                         } else if (choice2 == 3) {
                             sys.setStatus();
                         } else if (choice2 == 4) {

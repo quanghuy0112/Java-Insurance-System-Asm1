@@ -16,15 +16,6 @@ public class PolicyHolder extends Customer {
         listOfDependent = new ArrayList<Dependent>();
     }
 
-
-    public List<Dependent> getListOfDependent() {
-        return listOfDependent;
-    }
-
-    public void setListOfDependent(List<Dependent> listOfDependent) {
-        this.listOfDependent = listOfDependent;
-    }
-
     public boolean addDependent(Dependent dependent) {
         if (listOfDependent.contains(dependent)) {
             return false;

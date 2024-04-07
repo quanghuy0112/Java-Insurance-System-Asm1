@@ -1,11 +1,8 @@
 package Claim;
 
 import Customer.Customer;
-import InsuranceCard.InsuranceCard;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Claim {
     private String claimID;
@@ -55,20 +52,8 @@ public class Claim {
         return insuredPerson;
     }
 
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
-    public LocalDate getExamDate() {
-        return examDate;
-    }
-
     public void setExamDate(LocalDate examDate) {
         this.examDate = examDate;
-    }
-
-    public double getClaimAmount() {
-        return claimAmount;
     }
 
     public void setInsuredPerson(Customer insuredPerson) {
@@ -90,21 +75,8 @@ public class Claim {
         return documents;
     }
 
-
     public void setStatus(ClaimStatus status) {
         this.status = status;
-    }
-
-    public ClaimStatus getStatus() {
-        return status;
-    }
-
-    public boolean addCustomer(Customer insuredPerson) {
-        return insuredPerson.addClaim(this);
-    }
-
-    public BankInfo getReceiveBankInfo() {
-        return receiveBankInfo;
     }
 
     public void setReceiveBankInfo(BankInfo receiveBankInfo) {
