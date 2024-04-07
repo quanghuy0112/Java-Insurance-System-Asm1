@@ -167,6 +167,7 @@ public class SystemManager implements ClaimProcessManager {
                             policyHolderList.get(i).removeClaim(claimList.get(j));
                             claimList.get(j).setInsuredPerson(policyHolderList.get(i));
                             claimList.get(j).setCardNumber();
+                            System.out.println("Claim with the id" + claimID + "is removed successfully");
                             policyHolderList.get(i).showInfo();
 
 //                            break; // Exit the claim search loop if claim found
