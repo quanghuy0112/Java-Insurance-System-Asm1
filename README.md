@@ -1,0 +1,26 @@
+# Project Title
+
+This system aims to help the administrator to manage, track and process claim as well as manage customers and insurance cards with the simple text-based user interface (UI) program. 
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contact](#contact)
+
+## Installation
+
+Download all the file 
+
+## Usage
+
+Download all the file, unzip and run in the main class
+
+## License
+
+This project is licensed under the [RMIT](rmit.com.vn).
+
+## Contact
+
+Contact thought the email: s3970891@rmit.edu.vn
