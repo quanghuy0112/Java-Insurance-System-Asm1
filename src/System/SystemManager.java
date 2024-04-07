@@ -226,7 +226,7 @@ public class SystemManager implements ClaimProcessManager {
         viewAllDependent();
         Boolean foundCustomer = false;
         while (true) {
-            System.out.println("Enter the CusID (or type 'quit' to exit): ");
+            System.out.println("Enter the CusID you want to view all claim (or type 'quit' to exit): ");
             String cusID = scanner.nextLine();
             if (cusID.equals("quit")) {
                 System.out.println("Exiting CusID input.");
