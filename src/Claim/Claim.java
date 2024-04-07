@@ -1,5 +1,9 @@
 package Claim;
 
+/**
+ * @author <Pham Quang Huy - s3970891>
+ */
+
 import Customer.Customer;
 
 import java.time.LocalDate;

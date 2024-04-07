@@ -1,5 +1,9 @@
 package System;
 
+/**
+ * @author <Pham Quang Huy - s3970891>
+ */
+
 import java.util.*;
 
 public class Main {

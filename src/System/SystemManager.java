@@ -1,5 +1,9 @@
 package System;
 
+/**
+ * @author <Pham Quang Huy - s3970891>
+ */
+
 import InsuranceCard.InsuranceCard;
 import Claim.BankInfo;
 import Claim.ClaimStatus;

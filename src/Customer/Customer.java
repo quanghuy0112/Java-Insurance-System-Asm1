@@ -1,5 +1,9 @@
 package Customer;
 
+/**
+ * @author <Pham Quang Huy - s3970891>
+ */
+
 import Claim.Claim;
 import InsuranceCard.InsuranceCard;
 

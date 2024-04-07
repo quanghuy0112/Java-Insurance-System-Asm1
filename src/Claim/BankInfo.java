@@ -1,5 +1,8 @@
 package Claim;
 
+/**
+ * @author <Pham Quang Huy - s3970891>
+ */
 public class BankInfo {
     private String bank;
     private String name;

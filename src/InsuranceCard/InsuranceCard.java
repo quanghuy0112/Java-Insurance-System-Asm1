@@ -1,5 +1,9 @@
 package InsuranceCard;
 
+/**
+ * @author <Pham Quang Huy - s3970891>
+ */
+
 import Customer.Customer;
 import Claim.Claim;
 import System.SystemManager;
